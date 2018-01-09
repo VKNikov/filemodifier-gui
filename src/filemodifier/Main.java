@@ -17,6 +17,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("file-modifier.fxml"));
         primaryStage.setTitle("FIleModifier");
         primaryStage.setScene(new Scene(root, 800, 640));
+        primaryStage.setMinHeight(300);
+        primaryStage.setMinWidth(400);
         primaryStage.show();
     }
 

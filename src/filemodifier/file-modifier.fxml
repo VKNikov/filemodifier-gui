@@ -8,51 +8,106 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.input.KeyCodeCombination?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="filemodifier.FileModifierController">
-   <children>
-      <TextField fx:id="filePath" layoutX="68.0" layoutY="67.0" promptText="Type in full path to directory" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" />
-      <TextField fx:id="fileName" layoutX="68.0" layoutY="120.0" promptText="Type in the name of the file to look for" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" />
-      <TextField fx:id="regexPattern" layoutX="68.0" layoutY="173.0" promptText="Enter search regex" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" />
-      <TextField fx:id="replacementText" layoutX="68.0" layoutY="226.0" promptText="Replace with..." AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" />
-      <MenuBar layoutY="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
+<BorderPane minHeight="300.0" minWidth="400.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="filemodifier.FileModifierController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close"/>
+                    </items>
                <accelerator>
                   <KeyCodeCombination alt="ANY" code="F" control="UP" meta="UP" shift="UP" shortcut="UP" />
                </accelerator>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About"/>
+                    </items>
+                </Menu>
+            </menus>
       </MenuBar>
-      <HBox alignment="TOP_CENTER" layoutX="221.0" layoutY="291.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0">
-         <children>
-            <Button fx:id="run" mnemonicParsing="true" onAction="#handleRunAction" text="_Run" />
-            <Region HBox.hgrow="ALWAYS" />
-            <Button fx:id="quit" mnemonicParsing="true" onAction="#handleQuitAction" text="_Quit" />
-         </children>
-      </HBox>
-      <Label layoutX="68.0" layoutY="51.0" text="Path" AnchorPane.leftAnchor="80.0" />
-      <Label layoutX="68.0" layoutY="104.0" text="Filename" AnchorPane.leftAnchor="80.0" />
-      <Label layoutX="68.0" layoutY="157.0" text="Regex pattern" AnchorPane.leftAnchor="80.0" />
-      <Label layoutX="68.0" layoutY="210.0" text="Text to replace with" AnchorPane.leftAnchor="80.0" />
-      <Button fx:id="pickPath" layoutX="715.0" layoutY="67.0" mnemonicParsing="false" onAction="#handlePickPathAction" text="..." />
-      <HBox blendMode="DARKEN" layoutX="10.0" layoutY="500.0" prefHeight="41.0" prefWidth="783.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+    </top>
+    <center>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="110.0" prefWidth="150.0"/>
+                <ColumnConstraints minWidth="10.0" prefWidth="561.0"/>
+                <ColumnConstraints halignment="LEFT" maxWidth="70.0" minWidth="50.0" prefWidth="70.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="50.0" minHeight="35.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="50.0" minHeight="35.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="50.0" minHeight="35.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="50.0" minHeight="35.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="35.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Label contentDisplay="RIGHT" text="Regex pattern:" textAlignment="RIGHT" GridPane.halignment="RIGHT"
+                       GridPane.rowIndex="2">
+                    <padding>
+                        <Insets right="10.0"/>
+                    </padding>
+                </Label>
+                <Label text="New text:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                    <padding>
+                        <Insets right="10.0"/>
+                    </padding>
+                </Label>
+                <Label text="Filename:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                    <padding>
+                        <Insets right="10.0"/>
+                    </padding>
+                </Label>
+                <Label text="Path:" GridPane.halignment="RIGHT">
+                    <GridPane.margin>
+                        <Insets right="10.0"/>
+                    </GridPane.margin>
+                </Label>
+                <TextField fx:id="filePath" prefHeight="30.0" promptText="Type in full path to directory"
+                           GridPane.columnIndex="1" GridPane.hgrow="ALWAYS"/>
+                <TextField fx:id="fileName" prefHeight="30.0" promptText="Type in the name of the file to look for"
+                           GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"/>
+                <TextField fx:id="regexPattern" prefHeight="30.0" promptText="Enter search regex"
+                           GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2"/>
+                <TextField fx:id="replacementText" prefHeight="30.0" promptText="Replace with..."
+                           GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3"/>
+                <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0"
+                      GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <children>
+                        <Button fx:id="run" mnemonicParsing="true" onAction="#handleRunAction" text="_Run"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="quit" mnemonicParsing="true" onAction="#handleQuitAction" text="_Quit"/>
+                    </children>
+                </HBox>
+                <Button fx:id="pickPath" mnemonicParsing="false" onAction="#handlePickPathAction" text="..."
+                        GridPane.columnIndex="2">
+                    <GridPane.margin>
+                        <Insets left="5.0"/>
+                    </GridPane.margin>
+                </Button>
+            </children>
+            <BorderPane.margin>
+                <Insets left="10.0" right="10.0"/>
+            </BorderPane.margin>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox blendMode="DARKEN" prefHeight="41.0" prefWidth="783.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Version: alpha">
                <padding>
@@ -61,5 +116,5 @@
             </Label>
          </children>
       </HBox>
-   </children>
-</AnchorPane>
+    </bottom>
+</BorderPane>
