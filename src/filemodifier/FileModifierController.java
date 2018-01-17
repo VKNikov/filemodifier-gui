@@ -1,12 +1,10 @@
 package filemodifier;
 
+import com.filemodifier.FileModifier;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
@@ -14,6 +12,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 
 public class FileModifierController {
 
@@ -28,7 +27,12 @@ public class FileModifierController {
 
     public void handleRunAction() {
         if (isAllInformationPresent()) {
-            FileModifier.modifyFiles(filePath.getText().trim(), fileName.getText().trim(), regexPattern.getText().trim(), replacementText.getText().trim());
+            FileModifier fileModifier = new FileModifier();
+            try {
+                fileModifier.execute(filePath.getText().trim(), fileName.getText().trim(), regexPattern.getText().trim(), replacementText.getText().trim());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else {
             setWarningMessages();
         }
@@ -48,7 +52,7 @@ public class FileModifierController {
             regexPattern.setStyle("-fx-text-fill: red");
         }
         if (replacementText.getText().equals("")) {
-            replacementText.setText("Pleace enter a replacement text!");
+            replacementText.setText("Please enter a replacement text!");
             replacementText.setStyle("-fx-text-fill: red");
         }
     }
@@ -57,11 +61,11 @@ public class FileModifierController {
         return !filePath.getText().equals("") && !fileName.getText().equals("") && !regexPattern.getText().equals("") && !replacementText.getText().equals("");
     }
 
-    public void handleQuitAction(ActionEvent event) {
+    public void handleQuitAction() {
         Platform.exit();
     }
 
-    public void handlePickPathAction(ActionEvent event) {
+    public void handlePickPathAction() {
         Stage fileOpener = new Stage();
         fileOpener.setTitle("Choose path to file");
         fileOpener.initModality(Modality.APPLICATION_MODAL);
@@ -77,13 +81,13 @@ public class FileModifierController {
         }
     }
 
-    public void resetTextStyle(MouseEvent event) {
+    public void resetTextStyle() {
         if (fileName.getStyle().equals("-fx-text-fill: red")) {
-            removeTextFiieldStyling();
+            removeTextFieldStyling();
         }
     }
 
-    private void removeTextFiieldStyling() {
+    private void removeTextFieldStyling() {
         fileName.setStyle(null);
         fileName.clear();
         filePath.setStyle(null);
