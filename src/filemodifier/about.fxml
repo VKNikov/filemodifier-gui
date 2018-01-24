@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="filemodifier.AboutController">
+    <children>
+        <Button fx:id="closeButton" layoutX="173.0" layoutY="235.0" mnemonicParsing="false"
+                onAction="#handleCloseAction" text="Close"/>
+        <TextFlow layoutX="30.0" prefHeight="200.0" prefWidth="340.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="This is a simple program which tries to replace a given text string in text files with a new text. It is possible to replace a text in multiple files at once. Written by Vassil Nikov."
+                      wrappingWidth="320.95654296875"/>
+            </children>
+        </TextFlow>
+    </children>
+</AnchorPane>

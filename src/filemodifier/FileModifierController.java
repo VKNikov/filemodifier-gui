@@ -3,6 +3,8 @@ package filemodifier;
 import com.filemodifier.FileModifier;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -96,5 +98,14 @@ public class FileModifierController {
         regexPattern.clear();
         replacementText.setStyle(null);
         replacementText.clear();
+    }
+
+    public void handleAboutAction() throws IOException {
+        Stage aboutWindow = new Stage();
+        aboutWindow.setTitle("About FileModifier");
+        Parent layout = FXMLLoader.load(getClass().getResource("about.fxml"));
+
+        aboutWindow.setScene(new Scene(layout));
+        aboutWindow.show();
     }
 }
