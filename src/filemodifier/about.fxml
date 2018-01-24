@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
@@ -11,12 +12,16 @@
     <children>
         <Button fx:id="closeButton" layoutX="173.0" layoutY="235.0" mnemonicParsing="false"
                 onAction="#handleCloseAction" text="Close"/>
-        <TextFlow layoutX="30.0" prefHeight="200.0" prefWidth="340.0">
+        <TextFlow layoutX="30.0" prefHeight="186.0" prefWidth="340.0" textAlignment="JUSTIFY"
+                  AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0"
                       text="This is a simple program which tries to replace a given text string in text files with a new text. It is possible to replace a text in multiple files at once. Written by Vassil Nikov."
-                      wrappingWidth="320.95654296875"/>
+                      textAlignment="JUSTIFY" wrappingWidth="329.8115234375"/>
             </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
         </TextFlow>
     </children>
 </AnchorPane>

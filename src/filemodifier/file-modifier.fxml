@@ -106,7 +106,7 @@
    <bottom>
       <HBox blendMode="DARKEN" prefHeight="41.0" prefWidth="783.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Version: alpha">
+            <Label text="Version: 0.9 beta">
                <padding>
                   <Insets left="10.0" top="10.0" />
                </padding>
