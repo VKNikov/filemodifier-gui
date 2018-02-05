@@ -16,7 +16,7 @@
                   AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
             <children>
                 <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0"
-                      text="This is a simple program which tries to replace a given text string in text files with a new text. It is possible to replace a text in multiple files at once. Written by Vassil Nikov."
+                      text="This is a simple program which tries to replace a given text string in text files with a new text.&#13;It is possible to replace a text in multiple files at once.&#13;&#13;Written by Vassil Nikov.&#13;&#13; @ 2018"
                       textAlignment="JUSTIFY" wrappingWidth="329.8115234375"/>
             </children>
             <padding>

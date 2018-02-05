@@ -90,14 +90,17 @@ public class FileModifierController {
     }
 
     private void removeTextFieldStyling() {
-        fileName.setStyle(null);
-        fileName.clear();
-        filePath.setStyle(null);
-        filePath.clear();
-        regexPattern.setStyle(null);
-        regexPattern.clear();
-        replacementText.setStyle(null);
-        replacementText.clear();
+        nullifyStyleIfRed(fileName);
+        nullifyStyleIfRed(filePath);
+        nullifyStyleIfRed(regexPattern);
+        nullifyStyleIfRed(replacementText);
+    }
+
+    private void nullifyStyleIfRed(TextField field) {
+        if ("-fx-text-fill: red".equals(field.getStyle())) {
+            field.setStyle(null);
+            field.clear();
+        }
     }
 
     public void handleAboutAction() throws IOException {
